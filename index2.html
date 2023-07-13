@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>صفحة التسجيل</title>
+    <style>
+        body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #0000ff;
+  text-align: center;
+}
+
+form {
+  width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #0000ff;
+}
+
+input[type="text"],
+input[type="file"],
+input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #0000ff;
+  border-radius: 5px;
+}
+
+input[type="button"] {
+  background-color: #0000ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+span {
+  font-weight: bold;
+  color: #0000ff;
+  margin-right: 10px;
+}
+
+input[type="button"]:last-child {
+  display: none;
+}
+    </style>
+    <script>
+        function startTimer() {
+            var counter = 11;
+            var interval = setInterval(function() {
+                counter--;
+                if (counter >= 0) {
+                    span = document.getElementById("count");
+                    span.innerHTML = counter;
+                }
+                if (counter === 0) {
+                    clearInterval(interval);
+                    document.getElementById("submitBtn").style.display = "none";
+                    document.getElementById("showAnswerBtn").style.display = "block";
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <h1>صفحة التسجيل</h1>
+    <form>
+        <label for="name">الاسم:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="phone">رقم الهاتف:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+        
+        <label for="experience">عدد سنوات الخبرة:</label>
+        <input type="text" id="experience" name="experience"><br><br>
+        
+        <label for="address">العنوان:</label>
+        <input type="text" id="address" name="address"><br><br>
+        
+        <label for="cv">صورة سيرة ذاتية:</label>
+        <input type="file" id="cv" name="cv"><br><br>
+        
+        <input type="button" value="تسجيل" onclick="startTimer()" id="submitBtn">
+        <span id="count"></span>
+        <input type="button" value="عرض الإجابة" onclick="window.location.href='INDEX3.HTML'" id="showAnswerBtn" style="display: none;">
+    </form>
+</body>
+</html>
