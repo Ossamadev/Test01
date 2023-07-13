@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waiting Page</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 100px;
+			font-size: 40px;
+			color: #007bff;
+		}
+		#image {
+			display: block;
+			margin: 0 auto;
+			width: 300px;
+			height: 300px;
+			background: url(i1/image.jpg) no-repeat center;
+			background-size: contain;
+			border: 10px solid #007bff;
+			border-radius: 50%;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+		}
+		#countdown {
+			font-size: 24px;
+			text-align: center;
+			margin-top: 50px;
+			color: #333;
+		}
+		#signup {
+			display: none;
+			margin-top: 50px;
+			text-align: center;
+		}
+		button {
+			padding: 10px 20px;
+			font-size: 18px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+			transition: background-color 0.3s ease;
+		}
+		button:hover {
+			background-color: #0056b3;
+		}
+	</style>
+</head>
+<body>
+	<h1>نحن نبحث عن عمال بمختلف مناطق المملكة</h1>
+	<div id="image"></div>
+	<p id="countdown">سيتم تحويلك لصفحة التسجيل في <span id="timer">40</span> ثانية</p>
+	<div id="signup">
+		<p>سيتم تحويلك الآن إلى صفحة التسجيل</p>
+		<button onclick="location.href='index2.html'">تسجيل</button>
+	</div>
+
+	<script>
+		var count = 40;
+		var timer = document.getElementById('timer');
+		var countdown = setInterval(function() {
+			count--;
+			timer.innerHTML = count;
+			if (count === 0) {
+				clearInterval(countdown);
+				document.getElementById('countdown').style.display = 'none';
+				document.getElementById('signup').style.display = 'block';
+			}
+		}, 1000);
+	</script>
+</body>
+</html>
